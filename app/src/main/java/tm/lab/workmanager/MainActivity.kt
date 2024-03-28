@@ -68,7 +68,7 @@ fun MainScreen(ctx: Context, modifier: Modifier = Modifier) {
             text = "wynik = ${wynik.value}"
         )
         Button(onClick = {
-            wynik.value = 0
+            wynik.value = -1
             val data = MyWorker.run(ctx)
             data.observe(lco) { workInfo ->
                 wynik.value = workInfo.progress.getInt(MyWorker.TAG, -1)
@@ -79,13 +79,6 @@ fun MainScreen(ctx: Context, modifier: Modifier = Modifier) {
         })
         {
             Text("Start")
-        }
-
-        Button(onClick = {
-           // wynik.value =
-        })
-        {
-            Text("Sprawdz wynik")
         }
     }
 }
